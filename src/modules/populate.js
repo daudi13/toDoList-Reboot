@@ -2,9 +2,10 @@ import Task from "./addTask.js";
 
 
 const newTask = new Task();
-export const populate = (arrs) => {
+
+export const 	populate = (arrs) => {
 	const listBlock = document.querySelector('.listblock');
-	arrs.map(arr => {
+	arrs.map((arr) => {
 		const listItem = document.createElement('li');
 		listItem.classList.add('task-container');
 		listItem.setAttribute('class', 'task-container');
@@ -16,6 +17,10 @@ export const populate = (arrs) => {
 		task.innerText = arr.description;
 		task.classList.add('txt');
 		const btn = document.createElement('button');
+		btn.addEventListener('click', (e) => {
+			e.preventDefault();
+			console.log(arr.index)
+		})
 		const icon = document.createElement('i');
 		icon.classList.add('fa', 'fa-trash-o');
 
@@ -25,8 +30,6 @@ export const populate = (arrs) => {
 		listItem.appendChild(btn);
 		btn.appendChild(icon);
 	})
-
-	newTask.tasks = [];
 }
 
 
